@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_movie"
+    app:startDestination="@id/movieListFragment">
+
+    <fragment
+        android:id="@+id/movieListFragment"
+        android:name="com.example.tmdb.ui.fragment.PopularMoviesFragment"
+        android:label="MovieListFragment"
+        tools:layout="@layout/fragment_popular_movies">
+
+        <action
+            android:id="@+id/toMovieDetailFragment"
+            app:destination="@id/movieDetailFragment"
+            app:enterAnim="@anim/anim_slide_in_right"
+            app:exitAnim="@anim/anim_slide_out_left"
+            app:popEnterAnim="@anim/anim_slide_in_left"
+            app:popExitAnim="@anim/anim_slide_out_right" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/movieDetailFragment"
+        android:name="com.example.tmdb.ui.fragment.MovieDetailsFragment"
+        android:label="MovieDetailFragment"
+        tools:layout="@layout/fragment_movie_details">
+
+        <argument
+            android:name="popularMoviesModel"
+            app:argType="com.example.tmdb.data.models.PopularMovie"
+            app:nullable="false" />
+
+    </fragment>
+
+</navigation>
